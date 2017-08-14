@@ -3,7 +3,13 @@ unit GoogleOTP;
 interface
 
 uses
-  System.SysUtils, System.Math, Base32U, IdGlobal, IdHMACSHA1, System.DateUtils;
+  {$IFDEF VER150}
+  // Delphi 7 declaration
+  SysUtils, Math, DateUtils,
+  {$ELSE}
+  System.SysUtils, System.Math, System.DateUtils,
+  {$ENDIF}
+  Base32U, IdGlobal, IdHMACSHA1;
 
 (*
 

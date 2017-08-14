@@ -12,7 +12,13 @@ that is also unicode ready, please see the Readme!
 interface
 
 uses
-  System.SysUtils;  // For UpperCase (Base32Decode)
+  // For UpperCase (Base32Decode)
+  {$IFDEF VER150}
+  // Delphi 7 declaration
+  SysUtils;
+  {$ELSE}
+  System.SysUtils;
+  {$ENDIF}
 
 type
   Base32 = class
@@ -31,7 +37,7 @@ type
 
 implementation
 
-{$REGION 'Base32Functions'}
+{$IFDEF undef}{$REGION 'Base32Functions'}{$ENDIF}
 
 
 // As the FromBase32String Function doesn't has the result I'm looking for, here
@@ -69,7 +75,7 @@ begin
   end;
 end;
 
-{$ENDREGION}
+{$IFDEF undef}{$ENDREGION}{$ENDIF}
 
 { Base32 }
 

@@ -3,8 +3,14 @@ unit Form;
 interface
 
 uses
+  {$IFDEF VER150}
+  // Delphi 7 declaration
+  Windows, SysUtils, Controls, Forms, Dialogs,
+  StdCtrls, Classes;
+  {$ELSE}
   Winapi.Windows, System.SysUtils, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.StdCtrls, System.Classes;
+  Vcl.StdCtrls, System.Classes, StdCtrls, Controls, Classes;
+  {$ENDIF}
 
 type
   TFormOTP = class(TForm)
